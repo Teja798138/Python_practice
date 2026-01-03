@@ -39,10 +39,10 @@ pipeline {
             }
         }
 
-        stage('Generate Allure Report') {
+       stage('Generate Allure Report') {
             steps {
-                // Use the Jenkins Plugin step instead of a raw 'sh' command
-                // This makes the report appear in the Jenkins UI sidebar
+                // This step triggers the plugin directly
+                // It will automatically use the tool named 'allure' if configured
                 allure includeProperties: false, 
                        jdk: '', 
                        results: [[path: 'Reports/allure-results']]
